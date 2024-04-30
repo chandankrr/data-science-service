@@ -1,1 +1,3 @@
 dsenv
+*__pycache__
+.env
