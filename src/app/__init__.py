@@ -14,7 +14,7 @@ def handle_message():
 
 @app.route("/", methods=['GET'])
 def handle_get():
-    print("Hello wold!")
+    return "Hello wold!"
 
 
 if __name__ == "__main__":
