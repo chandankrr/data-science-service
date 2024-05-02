@@ -1,3 +1,4 @@
+.vscode
 dsenv
 *__pycache__
 .env
