@@ -1,13 +1,19 @@
 from flask import Flask, request, jsonify
 from kafka import KafkaProducer
 import json
-from service.messageService import MessageService
+from .service.messageService import MessageService
+import os
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
 
 messageService = MessageService()
-producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
+
+kafka_host = os.getenv('KAFKA_HOST', 'localhost')
+kafka_port = os.getenv('KAFKA_PORT', '9092')
+kafka_bootstrap_servers = f"{kafka_host}:{kafka_port}"
+
+producer = KafkaProducer(bootstrap_servers=kafka_bootstrap_servers,
                          value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 
 

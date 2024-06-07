@@ -2,3 +2,5 @@
 dsenv
 *__pycache__
 .env
+dist
+src/ds_service.egg-info/
