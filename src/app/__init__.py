@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from kafka import KafkaProducer
 import json
-from .service.messageService import MessageService
+from service.messageService import MessageService
 import os
 
 app = Flask(__name__)

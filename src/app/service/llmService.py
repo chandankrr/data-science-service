@@ -8,7 +8,7 @@ from langchain_openai import ChatOpenAI
 from langchain_mistralai import ChatMistralAI
 from langchain_core.utils.function_calling import convert_to_openai_tool
 
-from app.schema.Expense import Expense
+from schema.Expense import Expense
 
 class LLMService:
     def __init__(self):
