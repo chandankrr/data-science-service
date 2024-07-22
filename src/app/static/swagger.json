@@ -1,0 +1,71 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Data Science Service API",
+    "description": "This API handles the data scinece services for Budget Buddy, a mobile application designed for tracking expenses. It includes endpoints for extracting usefull information from message and send it to kafka queue and more.",
+    "version": "0.0.1",
+    "licence": "Apache 2.0"
+  },
+  "paths": {
+    "/v1/ds/message": {
+      "post": {
+        "summary": "Process a message and send it to Kafka",
+        "parameters": [
+          {
+            "name": "message",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Your message here"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message processed and sent to Kafka",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "object",
+                  "description": "The result of message processing"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid message format",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "Invalid message format"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "Returns a greeting message",
+        "responses": {
+          "200": {
+            "description": "A greeting message",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
